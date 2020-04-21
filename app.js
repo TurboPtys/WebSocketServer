@@ -2,7 +2,7 @@ const port = process.env.port || 3000;
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-var data = require('../data/codes-data.json');
+var data = require('./data/codes-data.json');
 
 var board;
 var isRedFirstPlayer = false;
@@ -37,7 +37,7 @@ io.on('connection', (socket) => {
 
 });
 
-http.listen(port, () => {
+http.listen(3000, () => {
     console.log('Listen on port ', port );
 })
 
