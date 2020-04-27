@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
 
 });
 
-http.listen(3000, () => {
+http.listen(port, () => {
     console.log('Server has started. Listen on port ', port );
 })
 
