@@ -3,6 +3,12 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 var data = require('./data/codes-data.json');
+const cors = require('cors');
+
+const router = require('./router');
+
+app.use(cors());
+app.use(router);
 
 var board;
 var isRedFirstPlayer = false;
@@ -38,7 +44,7 @@ io.on('connection', (socket) => {
 });
 
 http.listen(3000, () => {
-    console.log('Listen on port ', port );
+    console.log('Server has started. Listen on port ', port );
 })
 
 function randNewBoard() {
